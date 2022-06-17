@@ -1,0 +1,15 @@
+{
+  "port": 10040,
+  "core": "https://ja.wordpress.org/latest-ja.zip",
+  "themes": [
+    "."
+  ],
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip"
+  ],
+  "env": {
+    "tests": {
+      "port": 10041
+    }
+  }
+}

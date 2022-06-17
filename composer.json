@@ -1,0 +1,33 @@
+{
+  "name": "odango/odango",
+  "type": "package",
+  "description": "なじみやすくておいしいブロックテーマ",
+  "keywords": [
+	"WordPress",
+	"Themes"
+  ],
+  "homepage": "https://wp-odango.com",
+  "license": "GPL-2.0-or-later",
+  "require": {
+	"php": ">=7.4"
+  },
+  "require-dev": {
+	"szepeviktor/phpstan-wordpress": "^1.0.2",
+	"dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+	"wp-coding-standards/wpcs": "*",
+	"wptrt/wpthemereview": "^0.2.1",
+	"wp-phpunit/wp-phpunit": "^5.4",
+	"phpunit/phpunit": "^8.5",
+	"spatie/phpunit-watcher": "^1.23"
+  },
+  "scripts": {
+	"analyze": "@php ./vendor/bin/phpstan analyze",
+	"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+	"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
