@@ -34,19 +34,16 @@ class Blocks {
 			get_template_directory() . '/assets/css/core-blocks',
 			'core'
 		);
-//	$styled_blocks = [ 'button', 'file', 'latest-comments', 'latest-posts', 'quote', 'search' ];
-//	foreach ( $styled_blocks as $block_name ) {
-//		$args = array(
-//			'handle' => "odango-$block_name",
-//			'src'    => get_theme_file_uri( "assets/css/blocks/$block_name.min.css" ),
-//			'path'   => get_theme_file_path( "assets/css/blocks/$block_name.min.css" ),
-//		);
-//		// Replace the "core" prefix if you are styling blocks from plugins.
-//		wp_enqueue_block_style( "core/$block_name", $args );
-//	}
+		// 子テーマも検索.
+		if ( is_child_theme() ) {
+			$this->enqueue_block_styles(
+				get_stylesheet_directory() . '/assets/css/core-blocks',
+				'core'
+			);
+		}
 	}
 
-	private function enqueue_block_styles( $dir, $namespace ) {
+	private function enqueue_block_styles( $dir, $namespace, $is_child = false ) {
 		$dir = glob( "${dir}/*", GLOB_ONLYDIR );
 		foreach ( glob( "${dir}/*", GLOB_ONLYDIR ) as $dir_path ) {
 			$block_name     = $namespace . '/' . basename( $dir_path );
@@ -55,7 +52,7 @@ class Blocks {
 				$block_name,
 				[
 					'handle' => "odango-$block_name",
-					'src'    => Path::replace_template_path_to_uri( $theme_css_path ),
+					'src'    => Path::replace_template_path_to_uri( $theme_css_path, $is_child ),
 					'path'   => $theme_css_path,
 				]
 			);
