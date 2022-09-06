@@ -9,6 +9,8 @@
 
 namespace ooo;
 
+use ooo\helper\Path;
+
 defined( 'ABSPATH' ) || die();
 
 class Blocks {
@@ -18,7 +20,7 @@ class Blocks {
 	public function __construct() {
 		add_action( 'init', [ $this, 'register_block_styles' ] );
 		add_action( 'init', [ $this, 'register_block_patterns' ], 9 );
-		add_action( 'after_setup_theme', [ $this, 'enqueue_block_style' ] );
+		add_action( 'after_setup_theme', [ $this, 'enqueue_theme_block_styles' ] );
 	}
 
 	/**
@@ -26,7 +28,12 @@ class Blocks {
 	 *
 	 * @return void
 	 */
-	public function enqueue_block_style() {
+	public function enqueue_theme_block_styles() {
+
+		$this->enqueue_block_styles(
+			get_template_directory() . '/assets/css/core-blocks',
+			'core'
+		);
 //	$styled_blocks = [ 'button', 'file', 'latest-comments', 'latest-posts', 'quote', 'search' ];
 //	foreach ( $styled_blocks as $block_name ) {
 //		$args = array(
@@ -38,6 +45,23 @@ class Blocks {
 //		wp_enqueue_block_style( "core/$block_name", $args );
 //	}
 	}
+
+	private function enqueue_block_styles( $dir, $namespace ) {
+		$dir = glob( "${dir}/*", GLOB_ONLYDIR );
+		foreach ( glob( "${dir}/*", GLOB_ONLYDIR ) as $dir_path ) {
+			$block_name     = $namespace . '/' . basename( $dir_path );
+			$theme_css_path = $dir_path . '/' . basename( $dir_path ) . '.css';
+			wp_enqueue_block_style(
+				$block_name,
+				[
+					'handle' => "odango-$block_name",
+					'src'    => Path::replace_template_path_to_uri( $theme_css_path ),
+					'path'   => $theme_css_path,
+				]
+			);
+		}
+	}
+
 
 	/**
 	 * ブロックのスタイル追加
@@ -60,7 +84,7 @@ class Blocks {
 		 */
 		register_block_pattern_category(
 			'images',
-			array( 'label' => esc_html__( 'Images', 'odango' ) )
+			[ 'label' => esc_html__( 'Images', 'odango' ) ]
 		);
 	}
 }

@@ -8,3 +8,5 @@
  */
 
 defined( 'ABSPATH' ) || die();
+
+require_once __DIR__ . '/class-path.php';
