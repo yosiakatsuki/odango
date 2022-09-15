@@ -4,6 +4,7 @@
   "settings": {
 	"appearanceTools": true,
 	"color": {
+	  "defaultPalette": false,
 	  "palette": [
 		{
 		  "slug": "background",
@@ -124,8 +125,7 @@
 	  ]
 	},
 	"custom": {
-	  "h-spacing": "2.375rem",
-	  "v-spacing": "1.25rem",
+	  "spacing-gutter": "1rem",
 	  "text-shadow": "0 2px 8px rgba(0, 0, 0, 0.9)",
 	  "button-shadow": "0 8px 8px 0 rgba(0, 0, 0, 0.2)",
 	  "small-button-shadow": "0 1px 1px 0 rgba(0, 0, 0, 0.2)",

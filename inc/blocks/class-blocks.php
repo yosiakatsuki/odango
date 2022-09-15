@@ -38,13 +38,14 @@ class Blocks {
 		if ( is_child_theme() ) {
 			$this->enqueue_block_styles(
 				get_stylesheet_directory() . '/assets/css/core-blocks',
-				'core'
+				'core',
+				true
 			);
 		}
 	}
 
+
 	private function enqueue_block_styles( $dir, $namespace, $is_child = false ) {
-		$dir = glob( "${dir}/*", GLOB_ONLYDIR );
 		foreach ( glob( "${dir}/*", GLOB_ONLYDIR ) as $dir_path ) {
 			$block_name     = $namespace . '/' . basename( $dir_path );
 			$theme_css_path = $dir_path . '/' . basename( $dir_path ) . '.css';

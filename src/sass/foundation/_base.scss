@@ -2,3 +2,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
+
+:where(*),
+:where(*::before),
+:where(*::after) {
+  box-sizing: border-box;
+}

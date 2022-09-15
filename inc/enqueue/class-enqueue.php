@@ -23,10 +23,16 @@ class Enqueue {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style(
-			'ooo-style',
+			'-ooo--base',
+			get_template_directory_uri() . '/assets/css/odango.css',
+			[],
+			filemtime( get_template_directory() . '/assets/css/odango.css' )
+		);
+		wp_enqueue_style(
+			'-ooo--style',
 			get_stylesheet_uri(),
 			[],
-			ODANGO_VERSION
+			filemtime( get_theme_file_path( 'style.css' ) )
 		);
 	}
 }

@@ -45,7 +45,7 @@
 	"build:css:core-blocks": "sass blocks-core:assets/css/core-blocks --no-source-map",
 	"build:css:theme": "sass src/sass:assets/css --no-source-map",
 	"build:css": "run-p build:css:*",
-	"build": "run-s clean build:*",
+	"build": "run-s build:*",
 	"cli": "wp-env run cli",
 	"wp": "wp-env run cli wp",
 	"test:php": "wp-env start && wp-env run phpunit 'phpunit -c /var/www/html/wp-content/themes/odango/phpunit.xml.dist --verbose'",

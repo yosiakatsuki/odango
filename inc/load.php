@@ -11,6 +11,8 @@ defined( 'ABSPATH' ) || die();
 
 require_once __DIR__ . '/helper/helper.php';
 require_once __DIR__ . '/init/class-init.php';
+require_once __DIR__ . '/enqueue/class-enqueue.php';
+
 require_once __DIR__ . '/blocks/class-blocks.php';
 
 require_once __DIR__ . '/excerpt/class-excerpt.php';
