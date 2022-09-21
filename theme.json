@@ -126,6 +126,7 @@
 	},
 	"custom": {
 	  "spacing-gutter": "1rem",
+	  "spacing-block-gap": "1.5em",
 	  "color-text-gray": "#999",
 	  "shadow-text": "0 2px 8px rgba(0, 0, 0, 0.9)",
 	  "button-highlight": "0 0 0 #fff",
@@ -147,7 +148,7 @@
   },
   "styles": {
 	"spacing": {
-	  "blockGap": "var(--wp--custom--v-spacing)",
+	  "blockGap": "var(--wp--custom--spacing-block-gap)",
 	  "margin": {
 		"top": "0px",
 		"right": "0px",
@@ -172,6 +173,8 @@
 	  }
 	},
 	"blocks": {
+	  "core/paragraph": {
+	  },
 	  "core/button": {
 		"color": {
 		  "background": "var(--wp--preset--color--secondary)",

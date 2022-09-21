@@ -29,6 +29,7 @@ class Blocks {
 		add_action( 'after_setup_theme', [ $this, 'enqueue_theme_block_styles' ] );
 		add_filter( 'block_categories_all', [ $this, 'add_block_categories' ] );
 		add_filter( 'block_type_metadata', [ $this, 'block_type_metadata' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ], 11 );
 	}
 
 	/**
@@ -199,6 +200,15 @@ class Blocks {
 			'namespace' => $namespace,
 			'name'      => $block_name,
 		];
+	}
+
+	public function enqueue_block_editor_assets() {
+		wp_enqueue_style(
+			'ooo-editor-style',
+			get_template_directory_uri() . '/assets/css/odango-editor.css',
+			[],
+			filemtime( get_template_directory() . '/assets/css/odango-editor.css' )
+		);
 	}
 
 	/**
