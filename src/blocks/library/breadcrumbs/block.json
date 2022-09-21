@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ooo/breadcrumbs",
+  "version": "0.0.1",
+  "title": "[ooo]パンくずブロック",
+  "description": "パンくずリスト表示ブロック",
+  "category": "oooTemplate",
+  "keywords": [
+	"パンくず",
+	"breadcrumbs"
+  ],
+  "attributes": {
+  },
+  "supports": {
+	"align": false,
+	"className": false
+  },
+  "textdomain": "odango",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

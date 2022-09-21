@@ -10,3 +10,5 @@
 defined( 'ABSPATH' ) || die();
 
 require_once __DIR__ . '/class-path.php';
+require_once __DIR__ . '/class-post-type.php';
+require_once __DIR__ . '/class-boolean.php';

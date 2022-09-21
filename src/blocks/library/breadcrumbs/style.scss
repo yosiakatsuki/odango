@@ -1,0 +1,28 @@
+.ooo-breadcrumbs {
+  font-size: .8em;
+  color: var(--wp--custom--color-text-gray);
+}
+.ooo-breadcrumbs__list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ooo-breadcrumbs__item {
+  display: inline;
+
+  &:last-child {
+	.ooo-breadcrumbs__separate {
+	  display: none;
+	}
+  }
+}
+
+.ooo-breadcrumbs__link {
+  text-decoration: none;
+  color: currentColor;
+}

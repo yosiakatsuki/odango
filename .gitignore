@@ -3,3 +3,4 @@
 /temp
 *.zip
 /vendor
+/build

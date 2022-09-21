@@ -126,20 +126,23 @@
 	},
 	"custom": {
 	  "spacing-gutter": "1rem",
-	  "text-shadow": "0 2px 8px rgba(0, 0, 0, 0.9)",
-	  "button-shadow": "0 8px 8px 0 rgba(0, 0, 0, 0.2)",
-	  "small-button-shadow": "0 1px 1px 0 rgba(0, 0, 0, 0.2)",
+	  "color-text-gray": "#999",
+	  "shadow-text": "0 2px 8px rgba(0, 0, 0, 0.9)",
 	  "button-highlight": "0 0 0 #fff",
 	  "button-border-color": "rgba(0, 0, 0, 0.05)",
 	  "button-border-radius": "4px",
 	  "button-padding": ".3rem 1rem",
+	  "button-shadow": "0 8px 8px 0 rgba(0, 0, 0, 0.2)",
+	  "button-shadow-small": "0 1px 1px 0 rgba(0, 0, 0, 0.2)",
 	  "site-color-background": "var(--wp--preset--color--background)",
 	  "site-color-text": "var(--wp--preset--color--foreground)",
 	  "site-typography-size": "var(--wp--preset--font-size--medium)",
 	  "site-typography-font-family": "var(--wp--preset--font-family--default)",
 	  "site-typography-line-height": "1.7",
 	  "link-text-color": "var(--wp--preset--color--foreground)",
-	  "link-text-color-hover": "var(--wp--preset--color--foreground)"
+	  "link-text-color-hover": "var(--wp--preset--color--foreground)",
+	  "content-margin-top": "1rem",
+	  "content-margin-bottom": "1rem"
 	}
   },
   "styles": {
