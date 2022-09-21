@@ -20,9 +20,11 @@
 	  display: none;
 	}
   }
+  
+  .ooo-breadcrumbs__link {
+	text-decoration: none;
+	color: currentColor;
+  }
 }
 
-.ooo-breadcrumbs__link {
-  text-decoration: none;
-  color: currentColor;
-}
+
