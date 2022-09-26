@@ -182,16 +182,28 @@ class Blocks {
 		foreach ( glob( "${dir}/*", GLOB_ONLYDIR ) as $dir_path ) {
 			$block          = $this->parse_block_name( basename( $dir_path ) );
 			$block_name     = $block['namespace'] . '/' . $block['name'];
+			$style_handle   = "odango-$block_name";
 			$theme_css_path = $dir_path . '/' . $block['name'] . '.css';
+			$style_src      = Path::replace_template_path_to_uri( $theme_css_path, $is_child );
 
 			wp_enqueue_block_style(
 				$block_name,
 				[
-					'handle' => "odango-$block_name",
-					'src'    => Path::replace_template_path_to_uri( $theme_css_path, $is_child ),
+					'handle' => $style_handle,
+					'src'    => $style_src,
 					'path'   => $theme_css_path,
 				]
 			);
+			// インラインスタイルは必ず読み込み.
+			if ( false !== strpos( $block['name'], 'inline-style' ) ) {
+				wp_enqueue_style(
+					$style_handle,
+					$style_src,
+					[],
+					filemtime( $theme_css_path )
+				);
+				wp_style_add_data( $style_handle, 'path', $theme_css_path );
+			}
 		}
 	}
 

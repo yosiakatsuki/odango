@@ -30,7 +30,6 @@ const POPOVER_PROPS = {
 
 const registerInlineStyleSlot = ( blockName ) => {
 	const items = getLocalizeObject( OBJECT_NAME );
-	console.log( { items } );
 	if ( ! items || ! isObject( items ) ) {
 		return;
 	}
