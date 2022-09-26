@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ooo/inline-style",
+  "version": "0.0.1",
+  "title": "[ooo]インラインスタイル",
+  "description": "インラインスタイル",
+  "category": "ooo",
+  "keywords": [],
+  "attributes": {
+  },
+  "textdomain": "odango",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

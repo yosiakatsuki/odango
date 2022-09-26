@@ -1,0 +1,22 @@
+{
+  "ooo": {
+	"name": {
+	  "label": "ooo-button-1",
+	  "class": "ooo-button-1"
+	},
+	"name2": {
+	  "label": "ooo-button-2",
+	  "class": "ooo-button-2"
+	}
+  },
+  "custom": {
+	"name": {
+	  "label": "custom-button-1",
+	  "class": "custom-button-1"
+	},
+	"name2": {
+	  "label": "custom-button-2",
+	  "class": "custom-button-2"
+	}
+  }
+}

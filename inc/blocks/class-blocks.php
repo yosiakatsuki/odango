@@ -38,17 +38,23 @@ class Blocks {
 	 * @return void
 	 */
 	public function register_blocks() {
-		$this->register_odango_blocks();
+		// Odangoブロック.
+		$this->register_block_types( get_template_directory() . '/build/blocks/library' );
+		// 子テーマ対応.
+		if ( is_child_theme() ) {
+			$blocks_dir_path = apply_filters(
+				'ooo_block_blocks_dir_path',
+				get_stylesheet_directory() . '/build/blocks/library'
+			);
+			$this->register_block_types( $blocks_dir_path );
+		}
 	}
 
-	/**
-	 * Odangoブロック登録.
-	 *
-	 * @return void
-	 */
-	private function register_odango_blocks() {
-		$build_path = get_template_directory() . '/build/blocks/library/*';
-		foreach ( glob( $build_path, GLOB_ONLYDIR ) as $dir_path ) {
+	public function register_block_types( $blocks_dir_path ) {
+		if ( ! file_exists( $blocks_dir_path ) ) {
+			return;
+		}
+		foreach ( glob( "${blocks_dir_path}/*", GLOB_ONLYDIR ) as $dir_path ) {
 			$args       = [];
 			$block_name = basename( $dir_path );
 			$file       = $dir_path . '/index.php';
@@ -60,7 +66,10 @@ class Blocks {
 			$dynamic_block_file_path = $dir_path . '/' . $dynamic_block_file_name . '.php';
 			if ( file_exists( $dynamic_block_file_path ) ) {
 				require $dynamic_block_file_path;
-				$args['render_callback'] = '\ooo\Render_' . ucfirst( strtolower( $block_name ) ) . '::render';
+				$args['render_callback'] = apply_filters(
+					'ooo_block_dynamic_block_render_callback__' . strtolower( $block_name ),
+					'\ooo\Render_' . ucfirst( strtolower( $block_name ) ) . '::render',
+				);
 			}
 			// Register Block.
 			register_block_type( $dir_path, $args );

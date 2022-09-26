@@ -111,6 +111,7 @@ class Block_Registry {
 		if ( file_exists( $style_path_real ) ) {
 			wp_style_add_data( $style_handle, 'path', $style_path_real );
 		}
+
 		return $result ? $style_handle : false;
 	}
 }
