@@ -180,9 +180,12 @@ class Blocks {
 
 	private function enqueue_block_styles( $dir, $is_child = false ) {
 		foreach ( glob( "${dir}/*", GLOB_ONLYDIR ) as $dir_path ) {
-			$block          = $this->parse_block_name( basename( $dir_path ) );
-			$block_name     = $block['namespace'] . '/' . $block['name'];
-			$style_handle   = "odango-$block_name";
+			$block        = $this->parse_block_name( basename( $dir_path ) );
+			$block_name   = $block['namespace'] . '/' . $block['name'];
+			$style_handle = "odango-$block_name";
+			if ( $is_child ) {
+				$style_handle .= '-child';
+			}
 			$theme_css_path = $dir_path . '/' . $block['name'] . '.css';
 			$style_src      = Path::replace_template_path_to_uri( $theme_css_path, $is_child );
 
