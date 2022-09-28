@@ -1,1 +1,2 @@
-@use "component/editor"
+@use "foundation/editor" as foundation;
+@use "component/editor" as component;

@@ -1,0 +1,12 @@
+.editor-styles-wrapper {
+  .edit-post-visual-editor__post-title-wrapper,
+  .block-editor-block-list__layout.is-root-container {
+	> :where(:not(.alignleft):not(.alignright)) {
+	  width: min(calc(100% - 2rem), calc(800px + 2rem));
+	}
+
+	> .alignwide {
+	  width: min(calc(100% - 2rem), calc(900px + 2rem));
+	}
+  }
+}
