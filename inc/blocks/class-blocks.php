@@ -40,13 +40,17 @@ class Blocks {
 	public function register_blocks() {
 		// Odangoブロック.
 		$this->register_block_types( get_template_directory() . '/build/blocks/library' );
-		// 子テーマ対応.
+		// フックで追加.
+		$blocks_dir_path = apply_filters( 'ooo_block_blocks_dir_path', [] );
+		// 子テーマ.
 		if ( is_child_theme() ) {
-			$blocks_dir_path = apply_filters(
-				'ooo_block_blocks_dir_path',
-				get_stylesheet_directory() . '/build/blocks/library'
-			);
-			$this->register_block_types( $blocks_dir_path );
+			$blocks_dir_path[] = get_stylesheet_directory() . '/build/blocks/library';
+		}
+		if ( is_array( $blocks_dir_path ) && ! empty( $blocks_dir_path ) ) {
+			$blocks_dir_path = array_values( array_unique( $blocks_dir_path ) );
+			foreach ( $blocks_dir_path as $path ) {
+				$this->register_block_types( $path );
+			}
 		}
 	}
 
