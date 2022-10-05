@@ -9,4 +9,12 @@
 	  width: min(calc(100% - 2rem), calc(900px + 2rem));
 	}
   }
+  .block-editor-block-list__layout.is-root-container.wp-site-blocks {
+	> :where(:not(.alignleft):not(.alignright)) {
+	  width: auto;
+	}
+	> .alignwide {
+	  width: auto;
+	}
+  }
 }
