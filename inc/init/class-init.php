@@ -1,6 +1,6 @@
 <?php
 /**
- * Load
+ * Init
  *
  * @package odango
  * @author  yosiakatsuki
