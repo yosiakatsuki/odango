@@ -95,7 +95,7 @@ class Block_Registry {
 		if ( ! file_exists( $style_path_real ) ) {
 			return false;
 		}
-		$style_is_child = 0 === strpos( $style_path_norm, get_stylesheet_directory() );
+		$style_is_child = false !== strpos( $style_path_norm, get_stylesheet_directory() );
 		// Style URL.
 		$style_uri = helper\Path::replace_template_path_to_uri( $style_path_norm, $style_is_child );
 

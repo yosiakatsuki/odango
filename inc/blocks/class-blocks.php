@@ -198,6 +198,7 @@ class Blocks {
 				[
 					'handle' => $style_handle,
 					'src'    => $style_src,
+					'ver'    => filemtime( $theme_css_path ),
 					'path'   => $theme_css_path,
 				]
 			);
